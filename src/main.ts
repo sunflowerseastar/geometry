@@ -1,5 +1,4 @@
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "./OrbitControls.js";
 
 /*
  * camera, scene, light, renderer
@@ -8,7 +7,7 @@ const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  1000,
 );
 camera.position.z = 5;
 
@@ -38,7 +37,7 @@ const largeIcosahedronMaterial = new THREE.MeshBasicMaterial({
 });
 const largeIcosahedron = new THREE.Mesh(
   largeIcosahedronGeometry,
-  largeIcosahedronMaterial
+  largeIcosahedronMaterial,
 );
 scene.add(largeIcosahedron);
 
@@ -52,7 +51,7 @@ for (let i = 0; i < vertices.count; i++) {
 
   const smallIcosahedron = new THREE.Mesh(
     smallIcosahedronGeometry,
-    smallIcosahedronMaterial
+    smallIcosahedronMaterial,
   );
   smallIcosahedron.position.copy(vertex);
   smallIcosahedron.lookAt(largeIcosahedron.position);
